@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Expense Tracker -->
+  <header>
+    <div class="heading">
+      <h1>Expense Tracker</h1>
+    </div>
+  </header>
+
+
+  <main class="container">
+    <div class="dashboard">
+      <div class="total-dashboard">
+        <!-- Budget -->
+        <div class="total-budget">
+          <h2>Budget</h2>
+          <input type="number" class="t-budget" name="budget" placeholder="Enter Budget">
+          <button type="submit" class="set-budget">Set Budget</button>
+        </div>
+
+        <!-- Spent -->
+        <div class="total-spent">
+          <h2>Total Spent</h2>
+          <p class="t-spent">0</p>
+        </div>
+
+        <!-- Total GST -->
+        <div class="total-gst">
+          <h2>Total GST</h2>
+          <p class="t-gst">0</p>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <h2>Progress Bar</h2>
+        <label for="progress">Progress</label>
+        <div class="progress">
+          <div class="progress-fill"></div>
+        </div>
+
+
+      </div>
+
+
+
+      <!-- All Expense Fields -->
+      <div class="expense-dashboard">
+        <form class="expense-form" novalidate>
+          <label for="date">Date</label>
+          <input type="date" class="date" id="date" name="date" required>
+
+          <label for="description">Description</label>
+          <input type="text" class="description" id="description" name="description" placeholder="Enter description" required>
+
+          <label for="amount">Amount</label>
+          <input type="number" class="amount" id="amount" name="amount" placeholder="Enter amount" required>
+
+          <label for="vendor">Vendor</label>
+          <input type="text" class="vendor" id="vendor" name="vendor" placeholder="Enter vendor's name" required>
+
+          <label for="category">Category</label>
+          <select name="category" class="category" id="category">
+            <option value="">Select Category</option>
+            <option value="materials">Materials</option>
+            <option value="labour">Labour</option>
+            <option value="transport">Transport</option>
+            <option value="miscellaneous">Miscellaneous</option>
+            <option value="contingency">Contingency</option>
+            <option value="other">Other</option>
+          </select>
+
+
+          <div class="gst-section">
+
+            <div class="gst-toggle-row">
+              <label for="gst">Apply GST</label>
+
+              <label class="switch">
+                <input type="checkbox" class="gst" id="gst">
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="gst-rate-container">
+              <label for="gst-rate">GST Rate</label>
+              <select class="gst-rate" id="gst-rate">
+                <option value="">Select GST Rate</option>
+                <option value="5">5%</option>
+                <option value="12">12%</option>
+                <option value="18">18%</option>
+                <option value="28">28%</option>
+              </select>
+            </div>
+          </div>
+
+
+          <button type="submit" class="add-expense">+ Add Expense</button>
+        </form>
+      </div>
+
+      <!-- Search, Filter and Display Expenses -->
+      <div class="all-expenses">
+        <div class="search-expenses">
+          <input type="search" class="search-e" id="search-e" placeholder="Description or Vendor...">
+        </div>
+
+        <div class="filter-expenses">
+          <select class="filter-e" id="filter-e">
+            <option value="">Select Category</option>
+            <option value="materials">Materials</option>
+            <option value="labour">Labour</option>
+            <option value="transport">Transport</option>
+            <option value="miscellaneous">Miscellaneous</option>
+            <option value="contingency">Contingency</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="display-expenses">
+          <ul class="expense-list">
+          </ul>
+        </div>
+      </div>
+
+
+
+      <!-- Category Wise Breakdown -->
+      <div class="category-wise-spent">
+        <select class="filter-e">
+          <option value="">Select Category</option>
+          <option value="materials">Materials</option>
+          <option value="labour">Labour</option>
+          <option value="transport">Transport</option>
+          <option value="miscellaneous">Miscellaneous</option>
+          <option value="contingency">Contingency</option>
+          <option value="other">Other</option>
+        </select>
+
+        <div class="category-wise-chart">
+          <canvas class="category-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="./APP.js"></script>
+</body>
+
+</html>
